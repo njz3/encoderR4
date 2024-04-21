@@ -17,6 +17,8 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(encoder.read());
+  Serial.print(encoder.read());
+  Serial.print("    ");
+  Serial.println(encoder.readChange());
   delay(1000);
 }

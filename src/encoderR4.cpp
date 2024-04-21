@@ -87,10 +87,21 @@ bool EncoderR4::begin()
 
     ret = ret && _timer.start();
 
+    _lastValue = read();
+
     return ret;
 }
 
 uint16_t EncoderR4::read()
 {
     return _timer.get_counter();
+}
+
+int16_t EncoderR4::readChange()
+{
+    auto v = read();
+    int16_t ret = v - _lastValue;
+    _lastValue = v;
+
+    return ret;
 }

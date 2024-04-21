@@ -9,10 +9,12 @@ class EncoderR4{
 
         bool begin();
         uint16_t read();
+        int16_t readChange();
     private:
         unsigned int _pinA;
         unsigned int _pinB;
         FspTimer _timer{};
+        uint16_t _lastValue;
 };
 
 #endif // _ENCODERR4_H_

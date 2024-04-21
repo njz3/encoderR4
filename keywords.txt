@@ -1,0 +1,4 @@
+
+EncoderR4   KEYWORD1
+read        KEYWORD2
+readChange  KEYWORD2

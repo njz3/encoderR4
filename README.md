@@ -1,0 +1,1 @@
+This library uses a timer on the Arduino Uno R4 for reading a rotary encoder.
