@@ -42,7 +42,7 @@ bool EncoderR4::begin()
     ret = ret && hasChannelA && hasChannelB;
 
     _timer.force_use_of_pwm_reserved_timer();
-    ret = ret && _timer.begin(TIMER_MODE_PERIODIC, GPT_TIMER, channel, 0x10000, 0, TIMER_SOURCE_DIV_1);
+	ret = ret && _timer.begin(TIMER_MODE_PERIODIC, GPT_TIMER, channel, 0, 0, TIMER_SOURCE_DIV_1);
     ret = ret && _timer.open();
 
     if(!ret){
@@ -92,15 +92,15 @@ bool EncoderR4::begin()
     return ret;
 }
 
-uint16_t EncoderR4::read()
+uint32_t EncoderR4::read()
 {
     return _timer.get_counter();
 }
 
-int16_t EncoderR4::readChange()
+int32_t EncoderR4::readChange()
 {
-    auto v = read();
-    int16_t ret = v - _lastValue;
+    uint32_t v = read();
+    int32_t ret = v - _lastValue;
     _lastValue = v;
 
     return ret;

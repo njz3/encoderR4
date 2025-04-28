@@ -8,13 +8,13 @@ class EncoderR4{
         EncoderR4(unsigned int pinA, unsigned int pinB);
 
         bool begin();
-        uint16_t read();
-        int16_t readChange();
+        uint32_t read();
+        int32_t readChange();
     private:
         unsigned int _pinA;
         unsigned int _pinB;
         FspTimer _timer{};
-        uint16_t _lastValue;
+        uint32_t _lastValue;
 };
 
 #endif // _ENCODERR4_H_
